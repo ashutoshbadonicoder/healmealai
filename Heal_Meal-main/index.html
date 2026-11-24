@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HealMeal - AI Meal & Nutrition Assistant</title>
+    <link rel="icon" type="image/svg+xml" href="healmeal-heart.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img class="brand-mark" src="healmeal-heart.svg" alt="" />
+                <span>HealMeal</span>
+            </div>
+            <div class="nav-links">
+                <a href="#dashboard" class="active">Dashboard</a>
+                <a href="#meal-plan">Meal Plan</a>
+                <a href="#nutrition">Nutrition</a>
+                <a href="#medications">Medications</a>
+                <a href="#tools">Tools</a>
+            </div>
+            <div class="nav-actions">
+                <button class="voice-toggle" id="voiceToggle">
+                    <i class="fas fa-microphone"></i>
+                    <span>Voice Mode</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1><span class="hero-title-accent">Voice-Powered</span><br />Health Companion</h1>
+                <p>Speak your health concerns and get personalized meal plans, nutritional guidance, and medication reminders—all through natural conversation.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" id="startVoiceBtn">
+                        <i class="fas fa-microphone"></i> Start Voice Consultation
+                    </button>
+                    <button class="btn-secondary" id="guideMeBtn" type="button">
+                        <i class="fas fa-compass"></i> Guide Me
+                    </button>
+                </div>
+            </div>
+          
+
+            <div class="hero-visual">
+                <div class="voice-indicator">
+                    <div class="pulse-ring"></div>
+                    <div class="pulse-ring delay-1"></div>
+                    <div class="pulse-ring delay-2"></div>
+                    <div class="mic-orb">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Voice Consultation Area -->
+    <section class="section voice-consultation">
+        <div class="container">
+            <div class="voice-area">
+                <div class="voice-header">
+                    <h2><i class="fas fa-comment-medical"></i> Voice Consultation</h2>
+                    <span class="voice-status" id="voiceStatus">Ready to listen</span>
+                </div>
+                <div class="voice-conversation" id="conversationArea">
+                    <div class="message assistant">
+                        <div class="message-icon"><i class="fas fa-robot"></i></div>
+                        <div class="message-content">
+                            <p>Hello! I'm your health assistant. Tell me about your health concern, symptoms, or condition, and I'll help you with meal planning, nutrition, and medication reminders.</p>
+                            <span class="message-time">Just now</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="voice-controls">
+                    <button class="voice-btn" id="voiceBtn">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <input type="text" class="voice-input" id="voiceInput" placeholder="Type your health question or click the mic to speak..." />
+                    <button class="send-btn" id="sendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="section dashboard">
+        <div class="container">
+            <h2>Your Health Dashboard</h2>
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Meal Plan</h3>
+                    <p>Personalized meals for your condition</p>
+                    <div class="card-status active">Ready</div>
+                </div>
+                <div class="dashboard-card">
+                    <i class="fas fa-vitamins"></i>
+                    <h3>Nutrition</h3>
+                    <p>Vitamins & minerals you need</p>
+                    <div class="card-status active">Ready</div>
+                </div>
+                <div class="dashboard-card">
+                    <i class="fas fa-pills"></i>
+                    <h3>Medications</h3>
+                    <p>Reminders & schedule</p>
+                    <div class="card-status active">On this device</div>
+                </div>
+                <div class="dashboard-card">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Health Tools</h3>
+                    <p>BMI, calorie & more</p>
+                    <div class="card-status active">Ready</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meal Plan Section -->
+    <section id="meal-plan" class="section meal-plan">
+        <div class="container">
+            <h2><i class="fas fa-utensils"></i> Personalized Meal Plan</h2>
+            <div class="meal-controls">
+                <div class="meal-filter">
+                    <label for="healthConcern">Health concern or goal:</label>
+                    <input id="healthConcern" type="text" maxlength="500" placeholder="e.g., Type 2 diabetes, PCOS, acid reflux, healthy weight" autocomplete="off" />
+                </div>
+                <button class="btn-primary" id="generateMealBtn">
+                    <i class="fas fa-wand-magic-sparkles"></i> Generate Meal Plan
+                </button>
+            </div>
+            <p class="meal-plan-status" id="mealPlanStatus" aria-live="polite">Describe a health concern or nutrition goal, then generate general meal ideas.</p>
+            <div class="meal-grid" id="mealGrid" aria-live="polite"></div>
+        </div>
+    </section>
+
+    <!-- Nutrition Section -->
+    <section id="nutrition" class="section nutrition">
+        <div class="container">
+            <h2><i class="fas fa-vitamins"></i> Nutritional Analysis</h2>
+            <div class="nutrition-content">
+                <div class="nutrition-chart">
+                    <h3 id="nutritionSummaryTitle">Nutrition focus</h3>
+                    <p id="nutritionSummary">Your nutrition analysis will appear here after you generate a meal plan.</p>
+                    <div class="nutrition-totals" id="nutritionTotals" aria-label="Approximate plan totals"></div>
+                    <ul class="nutrition-focus-list" id="nutritionFocus"></ul>
+                </div>
+                <div class="nutrition-recommendations">
+                    <h3>Helpful foods</h3>
+                    <ul class="nutrition-food-list" id="nutritionFoods"></ul>
+                    <div class="nutrition-sources" id="nutritionSources" aria-label="Nutrition guidance sources"></div>
+                    <div class="food-sources">
+                        <h3>Important note</h3>
+                        <p id="nutritionDisclaimer">These are general meal ideas, not diagnosis or treatment. Discuss condition-specific dietary changes with your healthcare professional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Medications Section -->
+    <section id="medications" class="section medications">
+        <div class="container">
+            <h2><i class="fas fa-pills"></i> Medication Reminders</h2>
+            <div class="medication-controls">
+                <button class="btn-primary" id="addMedBtn">
+                    <i class="fas fa-plus"></i> Add Medication
+                </button>
+                <button class="btn-secondary" id="removeMedBtn" disabled>
+                    <i class="fas fa-trash"></i> Remove Medication
+                </button>
+            </div>
+            <p class="medication-note">Reminders are stored on this device and sound only while this page is open.</p>
+            <div class="medication-list" id="medicationList" aria-live="polite">
+                <p class="medication-empty">No medications added yet. Choose “Add Medication” to create a reminder.</p>
+            </div>
+        </div>
+    </section>
+
+    <dialog class="medication-dialog" id="medicationDialog" aria-labelledby="medDialogTitle">
+        <form id="medicationForm" class="medication-form">
+            <div class="medication-dialog-header">
+                <div><p class="eyebrow">PERSONAL REMINDER</p><h2 id="medDialogTitle">Add medication</h2></div>
+                <button class="dialog-close" type="button" id="closeMedDialog" aria-label="Close">&times;</button>
+            </div>
+            <label for="medicationName">Medication name</label>
+            <input id="medicationName" name="name" type="text" maxlength="80" required autocomplete="off" placeholder="e.g., Vitamin D" />
+            <label for="medicationTime">Reminder time</label>
+            <input id="medicationTime" name="time" type="time" required />
+            <label for="medicationDescription">Short note <span>(up to 15 words)</span></label>
+            <textarea id="medicationDescription" name="description" rows="2" maxlength="150" placeholder="e.g., Take with breakfast"></textarea>
+            <label for="medicationSound">Alarm sound</label>
+            <div class="medication-sound-control">
+                <select id="medicationSound" name="sound">
+                    <option value="gentle">Gentle chime</option>
+                    <option value="classic">Classic beeps</option>
+                    <option value="pulse">Soft pulse</option>
+                </select>
+                <button class="sound-preview-button" id="previewMedicationSound" type="button" aria-label="Preview selected alarm sound" title="Preview selected alarm sound">
+                    <i class="fas fa-volume-high" aria-hidden="true"></i>
+                </button>
+            </div>
+            <p class="medication-form-error" id="medicationFormError" role="alert"></p>
+            <div class="medication-form-actions">
+                <button class="btn-secondary" type="button" id="cancelMedDialog">Cancel</button>
+                <button class="btn-primary" type="submit">Save reminder</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Tools Section -->
+    <section id="tools" class="section tools">
+        <div class="container">
+            <h2><i class="fas fa-calculator"></i> Health Tools</h2>
+            <p class="tools-lead">Choose a practical health tool. Results are general information, not a diagnosis or a personalised care plan.</p>
+            <div class="tools-catalog">
+                <aside class="tool-menu" aria-label="Health tools">
+                    <button class="tool-menu-item active" type="button" data-tool="bmi" aria-pressed="true"><i class="fas fa-weight-scale"></i><span>BMI Calculator</span></button>
+                    <button class="tool-menu-item" type="button" data-tool="calorie" aria-pressed="false"><i class="fas fa-bowl-food"></i><span>Calorie Calculator</span></button>
+                    <button class="tool-menu-item" type="button" data-tool="tdee" aria-pressed="false"><i class="fas fa-person-running"></i><span>TDEE Calculator</span></button>
+                    <button class="tool-menu-item" type="button" data-tool="deficit" aria-pressed="false"><i class="fas fa-arrow-trend-down"></i><span>Calorie Deficit</span></button>
+                    <button class="tool-menu-item" type="button" data-tool="bodyfat" aria-pressed="false"><i class="fas fa-percent"></i><span>Body Fat Calculator</span></button>
+                    <button class="tool-menu-item" type="button" data-tool="macro" aria-pressed="false"><i class="fas fa-chart-pie"></i><span>Macro Calculator</span></button>
+                    <button class="tool-menu-item" type="button" data-tool="protein" aria-pressed="false"><i class="fas fa-drumstick-bite"></i><span>Protein Calculator</span></button>
+                    <button class="tool-menu-item" type="button" data-tool="water" aria-pressed="false"><i class="fas fa-glass-water"></i><span>Water Intake</span></button>
+                    <button class="tool-menu-item" type="button" data-tool="weightloss" aria-pressed="false"><i class="fas fa-scale-balanced"></i><span>Weight Loss Calculator</span></button>
+                    <button class="tool-menu-item" type="button" data-tool="bmr" aria-pressed="false"><i class="fas fa-fire"></i><span>BMR Calculator</span></button>
+                </aside>
+                <div class="tool-panel" id="toolPanel" aria-live="polite"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 HealMeal</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+                <a href="https://github.com/Aarchit1212/Heal_Meal" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

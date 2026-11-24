@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Learn how HealMeal handles browser storage, AI requests, voice features, and your choices." />
+    <title>Privacy Policy | HealMeal</title>
+    <link rel="icon" type="image/svg+xml" href="healmeal-heart.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body class="legal-page">
+    <nav class="legal-nav">
+        <div class="container">
+            <a class="legal-brand" href="index.html"><img class="brand-mark" src="healmeal-heart.svg" alt="" />HealMeal</a>
+            <a class="legal-back" href="index.html"><i class="fas fa-arrow-left"></i> Back to HealMeal</a>
+        </div>
+    </nav>
+    <main class="legal-content">
+        <h1>Privacy Policy</h1>
+        <p class="legal-updated">Last updated: November 21, 2026</p>
+        <p>This policy describes how the HealMeal demo handles information when you use the website. HealMeal is not designed for storing medical records or other sensitive personal information.</p>
+
+        <h2>Information saved in your browser</h2>
+        <p>The app saves conversation history in your browser's local storage so it can restore the chat on that browser and device. This data is not synced to a HealMeal account or database. Anyone with access to the same browser profile may be able to view it. Clear this site's browser storage to remove it.</p>
+
+        <h2>AI chat and meal-plan requests</h2>
+        <p>When you submit a question or request a meal plan, the app sends it to the HealMeal server, which forwards the request to Groq to generate a response. For chat, the app can also send recent conversation messages as context. The chat history remains in local storage, but messages you submit are sent for processing. Groq handles those requests under its own terms and privacy practices.</p>
+        <p>Avoid entering names, contact details, medical records, account numbers, or information that could identify you. Responses are generated automatically and may be inaccurate or incomplete.</p>
+
+        <h2>Voice features</h2>
+        <p>If you choose speech input, your browser may request microphone permission and use its speech-recognition service to transcribe your words. The browser or its provider may process audio according to its own settings and privacy policy. You can deny or revoke microphone access in your browser settings, or type instead.</p>
+        <p>When ElevenLabs text-to-speech is configured, text selected for speech is sent by the server to ElevenLabs to generate audio. The ElevenLabs API key is kept in server configuration and is not sent to your browser. If ElevenLabs is not configured or unavailable, the app may use your device's built-in speech voice. These external services have their own privacy practices.</p>
+
+        <h2>Technical processing and third-party resources</h2>
+        <p>The server processes requests to provide the app, applies request-size and rate limits, and may log errors needed to operate the service. The site also loads fonts and icons from Google Fonts and Cloudflare's CDN; those providers may receive technical information such as your IP address when your browser requests those files. The hosting provider may process technical logs as part of delivering the website.</p>
+
+        <h2>Cookies and analytics</h2>
+        <p>The app code does not set advertising cookies or include an analytics feature. Your browser, hosting provider, or third-party services may use or process technical data under their own policies.</p>
+
+        <h2>Your choices</h2>
+        <ul>
+            <li>Use typed input instead of voice, or deny microphone permission.</li>
+            <li>Clear HealMeal's local storage or browser data to remove saved chat history.</li>
+            <li>Avoid submitting information you do not want processed by the AI or voice providers.</li>
+        </ul>
+
+        <h2>Children and health information</h2>
+        <p>HealMeal is a general information demo and is not designed to collect information from children or to hold personal health information. A parent or guardian should supervise a child's use. Do not use the app to make urgent medical decisions.</p>
+
+        <h2>Changes and contact</h2>
+        <p>This policy may be updated as the app changes; the date above indicates the latest revision. For questions about the project, use the GitHub repository linked from the website footer. This policy describes the current demo implementation and is not a statement about the separate privacy practices of its hosting or AI providers.</p>
+    </main>
+</body>
+</html>
