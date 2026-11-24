@@ -5,6 +5,7 @@ const rateLimit = require("express-rate-limit");
 const path = require("path");
 
 const app = express();
+app.set("trust proxy", 1);
 const port = Number(process.env.PORT) || 3000;
 const model = process.env.GROQ_MODEL || "openai/gpt-oss-120b";
 app.disable("x-powered-by");
